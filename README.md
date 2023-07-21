@@ -23,4 +23,4 @@ Visual Studio Code
 PlatformIO
 
 Here is pinout of ESP32 i will beusing
-![ESP32S2]([http://url/to/img.png](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s2/_images/esp32-s2_saola1-pinout.jpg)https://docs.espressif.com/projects/esp-idf/en/latest/esp32s2/_images/esp32-s2_saola1-pinout.jpg)
+![ESP32](esp32-s2_saola1-pinout.jpg)
