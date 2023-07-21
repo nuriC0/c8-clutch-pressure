@@ -48,3 +48,4 @@ Here is pinout of ESP32 i will be using\
 
 Basic Diagram\
 ![ESP32](cpc_diagram.png)
+** Depending on your wiring and rest of setup, you might need to add some filtering on signal side **
