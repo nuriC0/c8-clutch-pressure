@@ -43,5 +43,8 @@ Following 3 pins will need to be depined on TCM Connector A (96 pin).  Pin 1 (gr
 I will refer to Pin 1 signal as **EVEN**, Pin 3 as **BASE** and Pin 5 as **ODD**.
 
 
-Here is pinout of ESP32 i will be using
+Here is pinout of ESP32 i will be using\
 ![ESP32](esp32-s2_saola1-pinout.jpg)
+
+Basic Diagram\
+![ESP32](cpc_diagram.png)
