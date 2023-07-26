@@ -48,4 +48,7 @@ Here is pinout of ESP32 i will be using\
 
 Basic Diagram\
 ![ESP32](cpc_diagram.png)
-** Depending on your wiring and rest of setup, you might need to add some filtering on signal side **
+
+
+$${\color{red}Depending \space on \space your \space wiring \space and \space rest \space of \space setup, \space you \space might \space need \space to \space add \space some \space filtering \space on \space signal \space side}$$
+
