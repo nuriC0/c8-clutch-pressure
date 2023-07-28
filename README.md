@@ -3,8 +3,6 @@
 
 Have you run into an issue where you need more clutch pressure?\
 Have you tried aftermarket clutch pressure controllers?\
-Did they fail you once you turned them up to advertised maximum pressure?\
-Did you really need to spend all that money?\
 Do you want to try something before HPTuners releases support for C8 TCM? \
 Are you electronically competent ?
 
@@ -23,11 +21,11 @@ I will take a pressure signal from Base, Odd and Even sensors located in Transmi
 
 
 **Hardware**
-* ESP32 S2        <<<< i will be using ESP32-S2-Saola-1, please dont use AMAZON knockoffs\
-* 6x 2k Resistors\
-* 6x 1k Resistors\
-* MCP4911-E/P\
-* MCP4912-E/P\
+* ESP32 S2        <<<< i will be using ESP32-S2-Saola-1, please dont use AMAZON knockoffs
+* 6x 2k Resistors
+* 6x 1k Resistors
+* MCP4911-E/P
+* MCP4912-E/P
 * K78L05-500R3    <<< or somekind of 5V regulator
 * 3x TE 1670146-1 <<< pins for TCM connector (will have to cut off insolation part)
 * Prototyping solderable breadboard, i use PTSolns off Amazon
@@ -116,7 +114,7 @@ SPI wires, 1k resistors with jumper wires to GPIO1/2/3, power wires where regula
 
 # Apendix
 
-Simular implementations
+Simular devices with few flaws
 
 ![Apendix1](board/apendix1.jpg)
 
