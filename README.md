@@ -61,6 +61,7 @@ GPIO8 = EVEN Output
 
 
 **Basic Diagram**
+
 ![ESP32](cpc_diagram.png)
 
 
@@ -69,6 +70,7 @@ $${\color{red}Depending \space on \space your \space wiring \space and \space re
 
 
 **Understanding MCPs**
+
 This information is also available on ICs datasheets. I have also noted which *GPIO* is to be used with pins.
 
 
@@ -76,3 +78,7 @@ This information is also available on ICs datasheets. I have also noted which *G
 
 ![MCP49x2](MCP49x2.png)
 
+
+**Voltage Dividers**
+
+![Voltage Dividers](VoltageDivider.png)
