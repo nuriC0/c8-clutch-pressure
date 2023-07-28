@@ -17,6 +17,11 @@ I will **not**  show you how to
 * How to tap into 12V at TCM
 * Where to place your newly built device
 
+
+**How does it work**\
+I will take a pressure signal from Base, Odd and Even sensors located in Transmission.  Read those pressures and also feed them into MCPs.  At this point, our code will make a decision if signal can be passed along into TCM or if it needs to be modified in MCP before its passed along to TCM.
+
+
 **Hardware**
 * ESP32 S2        <<<< i will be using ESP32-S2-Saola-1, please dont use AMAZON knockoffs\
 * 6x 2k Resistors\
@@ -34,16 +39,12 @@ I will **not**  show you how to
 * PlatformIO
 
 
-**How does it work**\
-I will take a pressure signal from Base, Odd and Even sensors located in Transmission.  Read those pressures and also feed them into MCPs.  At this point, our code will make a decision if signal can be passed along into TCM or if it needs to be modified in MCP before its passed along to TCM.
-
-
-**Important**\
-All signals in question are 5V, but ESP32 operates on 3.3V and it is not 5V tolerant.  That is where resistors come in play.  I will take all signals and run them thru voltage dividers\
-I will read values **before** and **after** MCP.  This will allow us to log, compare and debug.\
-Following 3 pins will need to be depined on TCM Connector A (96 pin).  Pin 1 (green/blue), Pin 3 (yellow/black) and Pin 5 (white/brown).\
-I will refer to Pin 1 signal as **EVEN**, Pin 3 as **BASE** and Pin 5 as **ODD**.\
-TCM has a habit of waking up and checking on sensors every so often.  Which means, power on with key on is a not an option.  We have few options to work around this.  First, leave device always on (27mA). Second, put device in half sleep (17mA).  Third, put device into DEEP sleep if signals are reading 0 for 5 seconds, and use Up Shift signal wake it up(via RTC at 7mA).
+**Important**
+* All signals in question are 5V, but ESP32 operates on 3.3V and it is not 5V tolerant.  That is where resistors come in play.  I will take all signals and run them thru voltage dividers\
+* I will read values **before** and **after** MCP.  This will allow us to log, compare and debug.\
+* Following 3 pins will need to be depined on TCM Connector A (96 pin).  Pin 1 (green/blue), Pin 3 (yellow/black) and Pin 5 (white/brown).\
+* I will refer to Pin 1 signal as **EVEN**, Pin 3 as **BASE** and Pin 5 as **ODD**.\
+* TCM has a habit of waking up and checking on sensors every so often.  Which means, power on with key on is a not an option.  We have few options to work around this.  First, leave device always on (27mA). Second, put device in half sleep (17mA).  Third, put device into DEEP sleep if signals are reading 0 for 5 seconds, and use Up Shift signal wake it up(via RTC at 7mA).
 
 
 **ESP32 S2 PINOUT i will be using**
@@ -86,5 +87,6 @@ This information is also available on ICs datasheets. I have also noted which *G
 
 
 **5 Volt Regulator**
+
 ![5 Volt Regulator](5VoltRegulator.png)
 
