@@ -83,10 +83,10 @@ This information is also available on ICs datasheets. I have also noted which *G
 
 **Voltage Dividers**
 
-![Voltage Dividers](VoltageDivider.png)
+![Voltage Dividers](board/VoltageDivider.png)
 
 
 **5 Volt Regulator**
 
-![5 Volt Regulator](5VoltRegulator.png)
+![5 Volt Regulator](board/5VoltRegulator.png)
 
