@@ -69,6 +69,10 @@ $${\color{red}Depending \space on \space your \space wiring \space and \space re
 
 
 **Understanding MCPs**
-This information is also available on ICs datasheets. 
+This information is also available on ICs datasheets. I have also noted which *GPIO* is to be used with pins.
+
+
+![MCP49x1](MCP49x1.png)
 
 ![MCP49x2](MCP49x2.png)
+
