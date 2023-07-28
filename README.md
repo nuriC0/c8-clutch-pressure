@@ -114,7 +114,7 @@ SPI wires, 1k resistors with jumper wires to GPIO1/2/3, power wires where regula
 
 # Apendix
 
-Simular devices
+Simular devices using Arduino Nano
 
 ![Apendix1](board/apendix1.jpg)
 
