@@ -25,7 +25,9 @@ I will **not**  show you how to
 * MCP4912-E/P\
 * K78L05-500R3    <<< or somekind of 5V regulator
 * 3x TE 1670146-1 <<< pins for TCM connector (will have to cut off insolation part)
+* Prototyping solderable breadboard, i use PTSolns off Amazon
 
+*Everything on above list can be purchased on digikey.com*
 
 **Software**
 * Visual Studio Code
@@ -33,7 +35,7 @@ I will **not**  show you how to
 
 
 **How does it work**\
-We will take a pressure signal from Base, Odd and Even sensors located in Transmission.  Read those pressures and also feed them into MCPs.  At this point, our code will make a decision if signal can be passed along into TCM or if it needs to be modified in MCP before its passed along to TCM.
+I will take a pressure signal from Base, Odd and Even sensors located in Transmission.  Read those pressures and also feed them into MCPs.  At this point, our code will make a decision if signal can be passed along into TCM or if it needs to be modified in MCP before its passed along to TCM.
 
 
 **Important**\
@@ -43,12 +45,30 @@ Following 3 pins will need to be depined on TCM Connector A (96 pin).  Pin 1 (gr
 I will refer to Pin 1 signal as **EVEN**, Pin 3 as **BASE** and Pin 5 as **ODD**.
 
 
-Here is pinout of ESP32 i will be using\
+**ESP32 S2 PINOUT i will be using**
+
 ![ESP32](esp32-s2_saola1-pinout.jpg)
 
-Basic Diagram\
+I will be using following GPIO
+
+GPIO1 = BASE Input\
+GPIO2 = ODD Input\
+GPIO3 = EVEN Input
+
+GPIO6 = BASE Output\
+GPIO7 = ODD Output\
+GPIO8 = EVEN Output
+
+
+**Basic Diagram**
 ![ESP32](cpc_diagram.png)
 
 
 $${\color{red}Depending \space on \space your \space wiring \space and \space rest \space of \space setup, \space you \space might \space need \space to \space add \space some \space filtering \space on \space signal \space side}$$
 
+
+
+**Understanding MCPs**
+This information is also available on ICs datasheets. 
+
+![MCP49x2](MCP49x2.png)
