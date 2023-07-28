@@ -90,3 +90,20 @@ This information is also available on ICs datasheets. I have also noted which *G
 
 ![5 Volt Regulator](board/5VoltRegulator.png)
 
+
+**Basic Board Layout**
+
+In this pic we can see 5Volt jump wire from ESP to ICs.  Also 2K Resistors presoldered before we put ESP32 on board. (ignore hole 10 resistors)
+
+![Step1](board/pic1.jpg)
+
+
+ESP32 and MCPs on board
+
+![Step2](board/pic2.jpg)
+
+
+SPI wires, 1k resistors with jumper wires to GPIO1/2/3, power wires where regulator would go
+
+![Step3](board/pic3.jpg)
+
