@@ -4,3 +4,6 @@
 IN = sensor values
 
 OUT = what TCM sees
+
+
+![capture](log_example.PNG)
