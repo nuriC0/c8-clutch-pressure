@@ -1,13 +1,13 @@
 
 # C8 Clutch Pressure Controller
 
-Have you run into an issue where you need more clutch pressure?\
-Have you tried aftermarket clutch pressure controllers with no luck?\
+Have you encountered a situation where you require additional clutch pressure?\
+Have you attempted using aftermarket clutch pressure controllers without success?\
 Do you want to try something before HPTuners releases support for C8 TCM? \
 Are you electronically competent ?
 
 Well this writeup is for you...\
-I will show you how to build it, and provide you with code which you can use as starting point.
+I will guide you through the process of constructing a controller and offer you code that can serve as a starting point.
 
 I will **not**  show you how to
 * Get to TCM (there are plenty of directions out there)
@@ -17,7 +17,9 @@ I will **not**  show you how to
 
 
 **How does it work**\
-I will take a pressure signal from Base, Odd and Even sensors located in Transmission.  Read those pressures and also feed them into MCPs.  At this point, our code will make a decision if signal can be passed along into TCM or if it needs to be modified in MCP before its passed along to TCM.
+The signals from pressure sensors in the transmissions are intercepted, and subsequently, these pressures are read and fed into MCP-DACs. At this stage, our code will determine whether the signal can be directly transmitted to the TCM or if it needs to be adjusted within the MCP-DAC before being passed on to the TCM.
+
+We will be handling three pressure sensors: one for the base transmission pressure and two for the clutch pressures - one for odd gears and the other for even gears.
 
 
 **Hardware**
@@ -39,13 +41,13 @@ I will take a pressure signal from Base, Odd and Even sensors located in Transmi
 
 **Important**
 * All signals in question are 5V, but ESP32 operates on 3.3V and it is not 5V tolerant.  That is where resistors come in play.  I will take all signals and run them thru voltage dividers\
-* I will read values **before** and **after** MCP.  This will allow us to log, compare and debug.\
+* Code will read values **before** and **after** MCP-DAC.  This will allow us to log, compare and debug.\
 * Following 3 pins will need to be depined on TCM Connector A (96 pin).  Pin 1 (green/blue), Pin 3 (yellow/black) and Pin 5 (white/brown).\
 * I will refer to Pin 1 signal as **EVEN**, Pin 3 as **BASE** and Pin 5 as **ODD**.\
-* TCM has a habit of waking up and checking on sensors every so often.  Which means, power on with key on is a not an option.  We have few options to work around this.  First, leave device always on (27mA). Second, put device in half sleep (17mA).  Third, put device into DEEP sleep if signals are reading 0 for 5 seconds, and use Up Shift signal wake it up(via RTC at 7mA).
+* The TCM periodically wakes up to check on sensors, which makes powering on with the key not feasible. To address this, we have a few options to consider. The first option is to keep the device always on, consuming 27mA of power. The second option is to put the device in a half-sleep mode, which consumes 17mA of power. The third option is to place the device into DEEP sleep mode if the signals remain at 0 for 5 seconds, and we can use the Up Shift signal to wake it up, utilizing the RTC and consuming 7mA of power.
 
 
-**ESP32 S2 PINOUT i will be using**
+**ESP32 S2 PINOUT used in this document and code**
 
 ![ESP32](esp32-s2_saola1-pinout.jpg)
 
@@ -71,7 +73,7 @@ $${\color{red}Depending \space on \space your \space wiring \space and \space re
 
 **Understanding MCPs**
 
-This information is also available on ICs datasheets. I have also noted which *GPIO* is to be used with pins.
+This information is also available on ICs datasheets. **Important** I have also noted ESP *GPIO* to be used with pins.  This is how you 'wire' it.
 
 
 ![MCP49x1](MCP49x1.png)
@@ -96,7 +98,7 @@ In this pic we can see 5Volt jump wire from ESP to ICs.  Also 2K Resistors preso
 ![Step1](board/pic1.jpg)
 
 
-ESP32 and MCPs on board
+ESP32 and MCP-DACs on board
 
 ![Step2](board/pic2.jpg)
 
