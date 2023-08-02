@@ -7,7 +7,6 @@ Do you want to try something before HPTuners releases support for C8 TCM? \
 Are you electronically competent ?
 
 Well this writeup is for you...\
-I will guide you through the process of constructing a controller and offer you code that can serve as a starting point.
 
 I will **not**  show you how to
 * Get to TCM (there are plenty of directions out there)
