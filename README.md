@@ -21,6 +21,7 @@ The signals from pressure sensors in the transmissions are intercepted, and subs
 We will be handling three pressure sensors: one for the base transmission pressure and two for the clutch pressures - one for odd gears and the other for even gears.
 
 
+
 **Hardware**
 * ESP32 S2        <<<< i will be using ESP32-S2-Saola-1, please dont use AMAZON knockoffs
 * 6x 2k Resistors
@@ -33,9 +34,15 @@ We will be handling three pressure sensors: one for the base transmission pressu
 
 *Everything on above list can be purchased on digikey.com*
 
+
 **Software**
 * Visual Studio Code
 * PlatformIO
+
+
+**Code Folders**
+* logger - contains code you should test your board with.  This will output pressures IN and OUT of MCP-DAC.  It should always match.  You can also use this project to fine tune your ZERO bar reading.
+
 
 
 **Important**
@@ -46,10 +53,6 @@ We will be handling three pressure sensors: one for the base transmission pressu
 * The TCM periodically wakes up to check on sensors, which makes powering on with the key not feasible. To address this, we have a few options to consider. The first option is to keep the device always on, consuming 27mA of power. The second option is to put the device in a half-sleep mode, which consumes 17mA of power. The third option is to place the device into DEEP sleep mode if the signals remain at 0 for 5 seconds, and we can use the Up Shift signal to wake it up, utilizing the RTC and consuming 7mA of power.
 
 
-
-**Code Folders**
-
-*logger* - contains code you should test your board with.  This will output pressures IN and OUT of MCP-DAC.  It should always match.  You can also use this project to fine tune your ZERO bar reading.
 
 
 **ESP32 S2 PINOUT used in this document and code**
@@ -115,6 +118,7 @@ SPI wires, 1k resistors with jumper wires to GPIO1/2/3, power wires where regula
 
 
 **At this point you should have an idea on what needs to be soldered and to what points.  Its called out above**
+
 
 
 
