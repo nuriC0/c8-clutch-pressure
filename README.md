@@ -14,6 +14,7 @@ I will **not**  show you how to
 * How to tap into 12V at TCM
 * Where to place your newly built device
 
+&nbsp;
 
 **How does it work**\
 The signals from pressure sensors in the transmissions are intercepted, and subsequently, these pressures are read and fed into MCP-DACs. At this stage, our code will determine whether the signal can be directly transmitted to the TCM or if it needs to be adjusted within the MCP-DAC before being passed on to the TCM.
@@ -21,6 +22,7 @@ The signals from pressure sensors in the transmissions are intercepted, and subs
 We will be handling three pressure sensors: one for the base transmission pressure and two for the clutch pressures - one for odd gears and the other for even gears.
 
 
+&nbsp;
 
 **Hardware**
 * ESP32 S2        <<<< i will be using ESP32-S2-Saola-1, please dont use AMAZON knockoffs
@@ -34,16 +36,19 @@ We will be handling three pressure sensors: one for the base transmission pressu
 
 *Everything on above list can be purchased on digikey.com*
 
+&nbsp;
 
 **Software**
 * Visual Studio Code
 * PlatformIO
 
+&nbsp;
 
 **Code Folders**
 * logger - contains code you should test your board with.  This will output pressures IN and OUT of MCP-DAC.  It should always match.  You can also use this project to fine tune your ZERO bar reading.
 
 
+&nbsp;
 
 **Important**
 * All signals in question are 5V, but ESP32 operates on 3.3V and it is not 5V tolerant.  That is where resistors come in play.  I will take all signals and run them thru voltage dividers\
@@ -53,7 +58,7 @@ We will be handling three pressure sensors: one for the base transmission pressu
 * The TCM periodically wakes up to check on sensors, which makes powering on with the key not feasible. To address this, we have a few options to consider. The first option is to keep the device always on, consuming 27mA of power. The second option is to put the device in a half-sleep mode, which consumes 17mA of power. The third option is to place the device into DEEP sleep mode if the signals remain at 0 for 5 seconds, and we can use the Up Shift signal to wake it up, utilizing the RTC and consuming 7mA of power.
 
 
-
+&nbsp;
 
 **ESP32 S2 PINOUT used in this document and code**
 
@@ -77,27 +82,36 @@ GPIO8 = EVEN Output
 
 $${\color{red}Depending \space on \space your \space wiring \space and \space rest \space of \space setup, \space you \space might \space need \space to \space add \space some \space filtering \space on \space signal \space side}$$
 
-
+&nbsp;
 
 **Understanding MCPs**
 
 This information is also available on ICs datasheets. **Important** I have also noted ESP *GPIO* to be used with pins.  This is how you 'wire' it.
 
+&nbsp;
+
+Using MCP49x1 as example, signal from Transmission is fed into **BASE Input** pin 6 and outputed to TCM via pin 8 **BASE Output**.\
+The actually functionality of IC is controlled via SPI.
+
+&nbsp;
 
 ![MCP49x1](MCP49x1.png)
 
 ![MCP49x2](MCP49x2.png)
 
+&nbsp;
 
 **Voltage Dividers**
 
 ![Voltage Dividers](board/VoltageDivider.png)
 
+&nbsp;
 
 **5 Volt Regulator**
 
 ![5 Volt Regulator](board/5VoltRegulator.png)
 
+&nbsp;
 
 # Basic Board Layout
 
@@ -120,8 +134,9 @@ SPI wires, 1k resistors with jumper wires to GPIO1/2/3, power wires where regula
 **At this point you should have an idea on what needs to be soldered and to what points.  Its called out above**
 
 
+&nbsp;
 
-
+&nbsp;
 
 ## Apendix
 
@@ -135,8 +150,9 @@ Yellow - This is what happens if your trigger/gate pressure is set to LOW.  In t
 ![Apendix1](board/log_example1.jpg)
 
 
+&nbsp;
 
-
+&nbsp;
 
 
 *2.0 - Simular devices using Arduino Nano and different approach*
