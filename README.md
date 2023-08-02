@@ -2,7 +2,7 @@
 # C8 Clutch Pressure Controller
 
 Have you run into an issue where you need more clutch pressure?\
-Have you tried aftermarket clutch pressure controllers?\
+Have you tried aftermarket clutch pressure controllers with no luck?\
 Do you want to try something before HPTuners releases support for C8 TCM? \
 Are you electronically competent ?
 
