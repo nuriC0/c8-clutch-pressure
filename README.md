@@ -114,10 +114,25 @@ SPI wires, 1k resistors with jumper wires to GPIO1/2/3, power wires where regula
 
 
 
-# Apendix
+## Apendix
 
-Simular devices using Arduino Nano
 
-![Apendix1](board/apendix1.jpg)
+1.0 - Reading logs
+
+Blue - This is what happens if you start to modify BASE pressure while clutch pressure was already modified.  Clutch and Base should always go together
+
+Yellow - This is what happens if your trigger/gate pressure is set to LOW.  In this case, i let go off the gas but signal was still being modified. Variable *_clutchGate* is to LOW in code.
+
+![Apendix1](board/log_example1.jpg)
+
+
+
+
+2.0 - Simular devices using Arduino Nano 
+
+
+
+
+![Apendix2](board/apendix1.jpg)
 
 ![Apendix2](board/apendix2.jpg)
