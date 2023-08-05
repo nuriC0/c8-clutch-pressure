@@ -149,6 +149,14 @@ Yellow - This is what happens if your trigger/gate pressure is set to LOW.  In t
 
 ![Apendix1](board/log_example1.jpg)
 
+&nbsp;
+
+&nbsp;
+
+*1.1 - Expected Result - 25% extra pressure holding 12psi of boost*
+
+![Apendix11](result_example.jpg)
+
 
 &nbsp;
 
