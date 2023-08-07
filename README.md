@@ -44,18 +44,20 @@ We will be handling three pressure sensors: one for the base transmission pressu
 
 &nbsp;
 
-**Code Folders**
-* logger - contains code you should test your board with.  This will output pressures IN and OUT of MCP-DAC.  It should always match.  You can also use this project to fine tune your ZERO bar reading.
+**Code Folders :file_folder:**
+* **logger** - contains code you should test your board with.  This will output pressures IN and OUT of MCP-DAC.  It should always match.  You can also use this project to fine tune your ZERO bar reading.
+* **main_with_SD_log** - same as main, but it adds support for SD Card logging and deep sleep mode via UP SHIFT signal from TCM.
 
 
 &nbsp;
 
-**Important**
+**Important :warning:**
 * All signals in question are 5V, but ESP32 operates on 3.3V and it is not 5V tolerant.  That is where resistors come in play.  I will take all signals and run them thru voltage dividers\
 * Code will read values **before** and **after** MCP-DAC.  This will allow us to log, compare and debug.\
 * Following 3 pins will need to be depined on TCM Connector A (96 pin).  Pin 1 (green/blue), Pin 3 (yellow/black) and Pin 5 (white/brown).\
 * I will refer to Pin 1 signal as **EVEN**, Pin 3 as **BASE** and Pin 5 as **ODD**.\
-* The TCM periodically wakes up to check on sensors, which makes powering on with the key not feasible. To address this, we have a few options to consider. The first option is to keep the device always on, consuming 27mA of power. The second option is to put the device in a half-sleep mode, which consumes 17mA of power. The third option is to place the device into DEEP sleep mode if the signals remain at 0 for 5 seconds, and we can use the Up Shift signal to wake it up, utilizing the RTC and consuming 7mA of power.
+* The TCM periodically wakes up to check on sensors, which makes powering on with the key not feasible. To address this, we have a few options to consider. The first option is to keep the device always on, consuming 27mA of power. The second option is to put the device in a half-sleep mode, which consumes 17mA of power. The third option is to place the device into DEEP sleep mode if the signals remain at 0 for 5 seconds, and we can use the Up Shift signal to wake it up, utilizing the RTC and consuming 7mA of power.\
+* If you decide to use flash memory or PSRAM. :bangbang: :bangbang: You can NOT use GPIO/PIN 26, use 21 next to it. :bangbang: :bangbang:
 
 
 &nbsp;
