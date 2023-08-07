@@ -1,12 +1,12 @@
 
-# C8 Clutch Pressure Controller
+# C8 Clutch Pressure Controller - IG  @oz_tt_c8
 
 Have you encountered a situation where you require additional clutch pressure?\
 Have you attempted using aftermarket clutch pressure controllers without success?\
 Do you want to try something before HPTuners releases support for C8 TCM? \
 Are you electronically competent ?
 
-Well this writeup is for you...\
+Well this writeup is for you...
 
 I will **not**  show you how to
 * Get to TCM (there are plenty of directions out there)
@@ -20,7 +20,6 @@ I will **not**  show you how to
 The signals from pressure sensors in the transmissions are intercepted, and subsequently, these pressures are read and fed into MCP-DACs. At this stage, our code will determine whether the signal can be directly transmitted to the TCM or if it needs to be adjusted within the MCP-DAC before being passed on to the TCM.
 
 We will be handling three pressure sensors: one for the base transmission pressure and two for the clutch pressures - one for odd gears and the other for even gears.
-
 
 &nbsp;
 
@@ -46,6 +45,7 @@ We will be handling three pressure sensors: one for the base transmission pressu
 
 **Code Folders :file_folder:**
 * **logger** - contains code you should test your board with.  This will output pressures IN and OUT of MCP-DAC.  It should always match.  You can also use this project to fine tune your ZERO bar reading.
+* **main** - as name suggests, main ESP32 code which will work with this write up.
 * **main_with_SD_log** - same as main, but it adds support for SD Card logging and deep sleep mode via UP SHIFT signal from TCM.
 
 
@@ -173,3 +173,7 @@ Yellow - This is what happens if your trigger/gate pressure is set to LOW.  In t
 ![Apendix2](board/apendix1.jpg)
 
 ![Apendix2](board/apendix2.jpg)
+
+
+## Instagram @oz_tt_c8
+
