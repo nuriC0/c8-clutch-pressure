@@ -23,6 +23,14 @@ We will be handling three pressure sensors: one for the base transmission pressu
 
 &nbsp;
 
+This is what we want...  ~25% extra clutch pressure, holding 12psi of boost .. YELLOW is what TCM sees when in ODD gear and GREEN is the actual pressure.  Same goes with white/red.. BASE pressure on TOP.
+
+![Apendix11](result_example.jpg)
+
+&nbsp;
+
+&nbsp;
+
 **Hardware**
 * ESP32 S2        <<<< i will be using ESP32-S2-Saola-1, please dont use AMAZON knockoffs
 * 6x 2k Resistors
